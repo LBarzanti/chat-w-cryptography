@@ -20,10 +20,11 @@ public class invia extends Thread
     {
         try
         {
+            c.initFromStrings();
             m=in.readLine();
-            m=c.cifra(m);
+            m=c.encrypt(m);
             System.out.println(m);
-            m=c.decifra(m);
+            m=c.decrypt(m);
             System.out.println(m);
         }
         catch(Exception e)
