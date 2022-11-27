@@ -1,4 +1,4 @@
-package it.fi.meucci;
+package fi.meucci;
 import java.io.*;
 import java.net.Socket;
 
@@ -21,11 +21,21 @@ public class invia extends Thread
     {
         try
         {
+            boolean termina;
             for(;;)
             {
+                termina=false;
                 m=tastiera.readLine();
+                if (m.equals("fine") || m.equals("FINE") || m.equals("null") || m == null) 
+                {
+                    termina=true;
+                }
                 m=c.encrypt(m);
                 out.writeBytes(m + "\n");
+                if (termina)
+                {
+                    break;
+                }
             }
         }
         catch(Exception e)

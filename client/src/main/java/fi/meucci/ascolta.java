@@ -1,4 +1,4 @@
-package it.fi.meucci;
+package fi.meucci;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
@@ -23,11 +23,14 @@ public class ascolta extends Thread
             for(;;)
             {
                 String x = c.decrypt(in.readLine());
-                if (x.equals("fine") || x.equals("FINE") || x == null || x.equals("null")) 
+                if (x.equals("fine") || x.equals("FINE")  || x == null || x.equals("null")) 
                 {
                     break;
                 }
-                System.out.println();
+                else
+                {
+                    System.out.println(x);
+                }
             }
         }
         catch(Exception e)
