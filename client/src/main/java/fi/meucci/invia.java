@@ -34,9 +34,11 @@ public class invia extends Thread
                 out.writeBytes(m + "\n");
                 if (termina)
                 {
+                    System.out.println("connessione interrotta");
                     break;
                 }
             }
+            s.close();
         }
         catch(Exception e)
         {

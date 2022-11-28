@@ -20,13 +20,10 @@ public class App
                 out = new DataOutputStream(s.getOutputStream());
                 in = new BufferedReader(new InputStreamReader(s.getInputStream()));
                 System.out.println("connessione effettuata");
-                crittografia c = new crittografia();
-                String e = c.getPrivKeyString();
-                out.writeBytes(e + "\n");
-                c.setExtPrivateString(in.readLine());
+                crittografia c = new crittografia(s);
                 invia i = new invia(s, c);
                 ascolta a = new ascolta(s, c);
-                c.initFromStrings();
+                c.init();
                 i.start();
                 a.start();
                 a.join();

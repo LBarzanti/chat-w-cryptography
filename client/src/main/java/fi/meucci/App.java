@@ -18,19 +18,16 @@ public class App
             host = tastiera.readLine();
             System.out.println("inserire la porta del server");
             port = tastiera.read();
-            s = new Socket(host, port);
+            s = new Socket("localhost", 25565);
             out = new DataOutputStream(s.getOutputStream());
             in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             System.out.println("connessione effettuata");
-            crittografia c = new crittografia();
-            String e = in.readLine();
-            c.setExtPrivateString(e);
-            out.writeBytes(c.getPrivKeyString() + "\n");
+            crittografia c = new crittografia(s);
             invia i = new invia(s, c);
             ascolta a = new ascolta(s, c);
-            c.initFromStrings();
-            a.start();
+            c.init();
             i.start();
+            a.start();
             a.join();
             s.close();
         }

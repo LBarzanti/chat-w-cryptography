@@ -23,10 +23,21 @@ public class invia extends Thread
         {
             for(;;)
             {
+                boolean termina=false;
                 m=tastiera.readLine();
+                if (m.equals("fine") || m.equals("FINE") || m.equals("null") || m == null) 
+                {
+                    termina=true;
+                }
                 m=c.encrypt(m);
                 out.writeBytes(m + "\n");
+                if (termina)
+                {
+                    System.out.println("connessione interrotta");
+                    break;
+                }
             }
+            s.close();
         }
         catch(Exception e)
         {

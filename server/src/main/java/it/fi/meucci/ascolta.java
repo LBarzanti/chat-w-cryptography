@@ -27,8 +27,9 @@ public class ascolta extends Thread
                 {
                     break;
                 }
-                System.out.println();
+                System.out.println(x);
             }
+            s.close();
         }
         catch(Exception e)
         {
