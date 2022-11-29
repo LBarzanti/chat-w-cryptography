@@ -12,13 +12,7 @@ public class App
             BufferedReader in;
             Socket s;
             BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
-            String host;
-            int port;
-            System.out.println("inserire indirizzo ip del server");
-            host = tastiera.readLine();
-            System.out.println("inserire la porta del server");
-            port = tastiera.read();
-            s = new Socket("localhost", 25565);
+            s = new Socket("0.tcp.eu.ngrok.io", 16608);
             out = new DataOutputStream(s.getOutputStream());
             in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             System.out.println("connessione effettuata");
