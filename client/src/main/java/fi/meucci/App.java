@@ -12,7 +12,7 @@ public class App
             BufferedReader in;
             Socket s;
             BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
-            s = new Socket("0.tcp.eu.ngrok.io", 16608);
+            s = new Socket("localhost", 25565);
             out = new DataOutputStream(s.getOutputStream());
             in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             System.out.println("connessione effettuata");
